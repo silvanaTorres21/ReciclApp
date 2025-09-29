@@ -1,43 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>ReciclApp</title>
-        <link rel="stylesheet" href="styles.css" />
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ReciclApp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-    <body>
-        <header>
-            <h1>ReciclApp</h1>
-            <p>Recicla y gana recompensas</p>
-        </header>
+  <body>
+    <header>
+      <button id="btn-toggle-perfil" class="btn-toggle">Perfil ▼</button>
+      <h1>ReciclApp</h1>
+      <p>Recicla y gana recompensas</p>
+    </header>
 
-        <main>
-            <section id="form-section">
-                <h2>Registrar reciclaje</h2>
-                <form id="recycling-form">
-                    <label for="material">Material:</label>
-                    <select id="material" required>
-                        <option value="">Selecciona el material:</option>
-                        <option value="plastico">Plástico</option>
-                        <option value="papel">Papel</option>
-                        <option value="vidrio">Vidrio</option>
-                    </select>
+    <section id="perfil-configuracion" class="perfil-container oculto">
+      <div class="perfil-header">
+        <img src="https://via.placeholder.com/100" alt="Avatar Usuario" class="perfil-avatar" />
+        <div class="perfil-info">
+          <h2 id="nombre-usuario">Usuario Prueba</h2>
+          <p id="usuario-nivel">Nivel 2 • 150 puntos</p>
+        </div>
+      </div>
 
-                    <label for="cantidad">Cantidad (kg): </label>
-                    <input type="number" id="cantidad" min="0.1" step="0.1" required>
+      <div class="perfil-opciones">
+        <button class="btn-perfil" id="editar-perfil-btn">Editar Perfil</button>
+        <button class="btn-perfil" id="historial-btn">Historial de Reciclaje</button>
+        <button class="btn-perfil" id="configuracion-btn">Configuración</button>
+      </div>
+    </section>
 
-                    <button type="submit">Enviar</button>
-                </form>
-            </section>
+    <main>
+      <section id="form-section">
+        <h2>Registrar reciclaje</h2>
+        <form id="recycling-form">
+          <label>Selecciona el tipo de material:</label>
+          <div class="material-options" id="material-options">
+            <div class="material-option" data-material="plastico">Plástico</div>
+            <div class="material-option" data-material="papel">Papel</div>
+            <div class="material-option" data-material="vidrio">Vidrio</div>
+          </div>
 
-            <section id="result-section">
-                <h2>Recompensas acumuladas</h2>
-                <p id="total-puntos">0 puntos</p>
-            </section>
-        </main>
+          <label for="cantidad">Cantidad (kg):</label>
+          <input type="number" id="cantidad" min="0.1" step="0.1" required />
 
-        <script src="script.js"></script>
-    </body>
+          <button type="submit">Registrar reciclaje ♻️</button>
+        </form>
+      </section>
+
+      <section id="result-section">
+        <h2>Recompensas acumuladas</h2>
+        <p id="total-puntos">0 puntos</p>
+      </section>
+
+      <section id="nivel-container">
+        <div id="barra-nivel">
+          <div id="progreso-nivel"></div>
+        </div>
+        <p id="texto-nivel">Nivel 1 - 0 / 100 puntos</p>
+      </section>
+
+      <section id="logros-container">
+        <h3>Logros desbloqueados:</h3>
+        <div id="logros-list">
+          <!-- Medallas se agregan dinámicamente -->
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
 </html>
+
